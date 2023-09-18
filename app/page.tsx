@@ -7,6 +7,12 @@ export default function Home() {
       <div className={styles.center}>
         <Image className={styles.logo} src="/ppa_logo_circle_200x200.png" alt="Park Place Abode logo" priority width="100" height="100"/>
       </div>
+      <article id="welcome">
+
+      </article>
+      <article id="intro">
+
+      </article>
     </main>
   )
 }

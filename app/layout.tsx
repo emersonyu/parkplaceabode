@@ -1,43 +1,27 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import Link from 'next/link'
-import { DM_Sans, Playfair_Display } from 'next/font/google'
+import { Header } from '../components/Header'
+import { Footer } from '../components/Footer'
 
-const dmSans = DM_Sans({ subsets: ['latin'] });
-const playfiarDisplay = Playfair_Display({ subsets: ['latin']});
+import { dmSans } from '../utils/fonts'
 
 export const metadata: Metadata = {
-  title: 'Park Place Abode',
-  description: 'ParkPlaceAbode is Natalie Han\'s design/build & DIY showcase',
+    title: 'Park Place Abode',
+    description: "ParkPlaceAbode is Natalie Han's design/build & DIY showcase",
 }
 
 export default function RootLayout({
-  children,
+    children,
 }: {
-  children: React.ReactNode
+    children: React.ReactNode
 }) {
-  return (
-    <html lang="en">
-      <body className={dmSans.className}>
-        <header className="content-container">
-          <div className="logo">
-            PARK PLACE ABODE
-          </div>
-          <nav className={playfiarDisplay.className}>
-            <ul className="toolbar">
-              <li>Link One</li>
-              <li>Link One</li>
-              <li>Link One</li>
-              <li>Link One</li>
-            </ul>
-          </nav>
-        </header>
-        {children}
-
-        <footer>
-
-        </footer>
-      </body>
-    </html>
-  )
+    return (
+        <html lang="en">
+            <body className={dmSans.className}>
+                <Header />
+                <section>{children}</section>
+                <Footer />
+            </body>
+        </html>
+    )
 }

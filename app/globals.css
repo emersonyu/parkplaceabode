@@ -103,32 +103,22 @@ body {
 }
 
 a {
-  color: inherit;
+  color: var(--brand-dark);
   text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+h1 {
+  font-family: var(--font-serif);
 }
 
 .content-container {
   padding-left: 6rem;
   padding-right: 6rem;
 }
-
-/* Move to Header.jsx */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-self: stretch;
-  padding: 1.2rem 0;
-}
-
-.toolbar {
-  display: flex;
-  list-style: none;  
-  
-  > li {
-    margin: 0 12px;
-  }
-}
-/* /Move to Header.jsx */
 
 footer {
   border-top: 1px solid #ccc;
