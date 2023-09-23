@@ -121,12 +121,33 @@ h1 {
 }
 
 footer {
+  background-color: var(--brand-dark);
   border-top: 1px solid #ccc;
+  color: white;
   width: 100%;
   margin-top: auto;
   min-height: 3rem;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
+.socials {
+  display: flex;
+  justify-content: center;;
+}
+.footer-links {
+  list-style: none;
+  display: flex;
+  gap: 16px;
+}
+
+.footer-links a {
+  color: var(--brand-light);
+  font-size: 0.88rem;
+}
 
 @media (prefers-color-scheme: dark) {
   html {
