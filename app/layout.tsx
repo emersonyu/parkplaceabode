@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
 
-import { dmSans } from '../utils/fonts'
+import { dmSans, playfairDisplay } from '../utils/fonts'
 
 export const metadata: Metadata = {
     title: 'Park Place Abode',
@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body className={dmSans.className}>
+            <body className={`${dmSans.className} ${playfairDisplay.variable}`}>
                 <Header />
                 <section>{children}</section>
                 <Footer />

@@ -5,10 +5,10 @@ import styles from './header.module.css'
 export const Header = (props: any) => {
     return (
         <header className={`content-container ${styles.header}`} {...props}>
-            <div className="logo">
-                <Link href="/">PARK PLACE ABODE</Link>
+            <div className={styles.logo}>
+                <Link href="/">[logo placeholder]</Link>
             </div>
-            <nav className={playfairDisplay.className}>
+            <nav className={`${playfairDisplay.className} ${styles.nav}`}>
                 <ul className={styles.toolbar}>
                     <li>
                         <Link href="/about">About</Link>

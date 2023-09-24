@@ -1,9 +1,17 @@
 .header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     align-self: stretch;
     padding-top: 1.2rem;
     padding-bottom: 1.2rem;
+}
+
+.logo {
+    width: 140px;
+    height: 40px;
+    background: var(--background-inverse);
+    color: var(--text-inverse);
 }
   
 .toolbar {
@@ -13,4 +21,21 @@
 
 .toolbar  > li  {
     margin: 0 12px;
+}
+
+.nav {
+    transform: translateX(0);
+}
+
+@media (max-width: 700px) {
+    .nav {
+        width: 30vw;
+        transform: translateX(100%);
+        position: absolute;
+        right: 0;
+    }
+
+    .toolbar {
+        flex-direction: column;
+    }
 }
