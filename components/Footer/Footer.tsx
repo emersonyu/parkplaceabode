@@ -4,7 +4,7 @@ import { playfairDisplay } from '../../utils/fonts'
 export const Footer = () => {
     return (
         <footer className="content-container">
-            <div className="socials" className={playfairDisplay.className}>
+            <div className={`socials ${playfairDisplay.className}`}>
                 <ul className="footer-links">
                     <li>
                         <a href="https://www.instagram.com/parkplaceabode/">
