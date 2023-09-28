@@ -4,7 +4,12 @@ import Link from 'next/link'
 import { playfairDisplay } from '../../utils/fonts'
 import styles from './header.module.css'
 
-const Hamburger = ({ onClick, isOpen = false }) => {
+type HamburgerProps = {
+    onClick: any
+    isOpen: boolean
+}
+
+const Hamburger = ({ onClick, isOpen = false }: HamburgerProps) => {
     return (
         <button
             className={`unstyled ${styles.hamburger} ${
@@ -44,7 +49,7 @@ const Hamburger = ({ onClick, isOpen = false }) => {
 
 export const Header = (props: any) => {
     const [showMenu, setShowMenu] = useState(false)
-    const handleToggle = (event) => {
+    const handleToggle = (event: any) => {
         setShowMenu(!showMenu)
     }
 
