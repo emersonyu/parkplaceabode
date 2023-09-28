@@ -126,6 +126,10 @@ a {
   }
 }
 
+button.unstyled {
+
+}
+
 h1 {
   font-family: var(--font-serif);
 }
@@ -135,8 +139,19 @@ h1 {
   padding-right: 6rem;
 }
 
+section.layout-container {
+  width: 100%;
+}
+
+section > main:not(.full) {
+  padding-left: 6rem;
+  padding-right: 6rem;
+  width: 100%;
+}
+
 @media (max-width: 700px) {
-  .content-container {
+  .content-container,
+  section > main:not(.full)  {
     padding-left: 1rem;
     padding-right: 1rem;
   }
