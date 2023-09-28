@@ -106,6 +106,7 @@ body {
   overflow-x: hidden;
   background-color: var(--background-light);
   color: var(--text-foreground);
+  position: relative;
 }
 
 body {
