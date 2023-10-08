@@ -14,8 +14,10 @@ export default function Home() {
                     height="100"
                 />
             </div>
-            <article id="welcome"></article>
-            <article id="intro"></article>
+            <article id="welcome">
+                <h1>Hello, welcome to ParkPlaceAbode!</h1>
+                <p>My name is Natalie Han, and I'm a DIYer... yadayada</p>
+            </article>
         </main>
     )
 }

@@ -54,8 +54,8 @@
 
   --brand-main: #f3DED6;
 
-  --text-foreground: #6F5F63;
-  --background-inverse: #6F5F63;
+  --text-foreground: #857B74;
+  --background-inverse: #857B74;
 }
 
 @media (prefers-color-scheme: dark) {
