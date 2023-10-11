@@ -16,7 +16,7 @@ export default function Home() {
             </div>
             <article id="welcome">
                 <h1>Hello, welcome to ParkPlaceAbode!</h1>
-                <p>My name is Natalie Han, and I'm a DIYer... yadayada</p>
+                <p>{"My name is Natalie Han, and I'm a DIYer... yadayada"}</p>
             </article>
         </main>
     )

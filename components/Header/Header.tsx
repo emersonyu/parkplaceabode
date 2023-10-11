@@ -47,10 +47,21 @@ const Hamburger = ({ onClick, isOpen = false }: HamburgerProps) => {
     )
 }
 
+const Mask = ({ onClick }: any) => {
+    return <div className={styles.mask} onClick={onClick} />
+}
+
 export const Header = (props: any) => {
     const [showMenu, setShowMenu] = useState(false)
     const handleToggle = (event: any) => {
         setShowMenu(!showMenu)
+    }
+
+    const handleLink = (event: any) => {
+        const { target } = event
+        if (showMenu && target.tagName.toUpperCase() === 'A') {
+            setShowMenu(false)
+        }
     }
 
     return (
@@ -59,12 +70,13 @@ export const Header = (props: any) => {
                 <Link href="/">[logo placeholder]</Link>
             </div>
             <Hamburger onClick={handleToggle} isOpen={showMenu} />
+            {showMenu && <Mask onClick={handleToggle} />}
             <nav
                 className={`${playfairDisplay.className} ${styles.nav} ${
                     showMenu && styles.navOpen
                 }`}
             >
-                <ul className={styles.toolbar}>
+                <ul className={styles.toolbar} onClick={handleLink}>
                     <li>
                         <Link href="/about">About</Link>
                     </li>

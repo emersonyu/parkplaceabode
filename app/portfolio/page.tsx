@@ -14,14 +14,12 @@ const getProjects = async () => {
 
 export default async function Portfolio() {
     const projects = await getProjects()
-    console.log(projects)
     return (
         <main>
             <h1>Portfolio</h1>
             {projects.map((project: any) => {
-                console.log(project)
                 return (
-                    <div>
+                    <div key={project._id}>
                         <h2>{project.name}</h2>
                     </div>
                 )
