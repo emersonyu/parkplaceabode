@@ -19,7 +19,7 @@ export const Footer = () => {
             <div className="logo">
                 <Link href="/">
                     <Image
-                        src="/parkplaceabode/ppa_logo_circle_200x200.png"
+                        src="/ppa_logo_circle_200x200.png"
                         alt="Park Place Abode logo"
                         priority
                         width="40"
