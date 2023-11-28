@@ -8,11 +8,10 @@
 }
 
 .logo {
-    width: 140px;
+    width: 190px;
     height: 40px;
-    background: var(--background-inverse);
-    color: var(--text-inverse);
     display: flex;
+    gap: 12px;
     align-items: center;
     justify-content: center;
 }
@@ -57,6 +56,10 @@
     left: 0;
 }
 
+.mobileFooter {
+    display: none;
+}
+
 @media (max-width: 700px) {
     .hamburger {
         display: block;
@@ -68,7 +71,7 @@
         position: absolute;
         right: 0;
         top: 0;
-        bottom: 62px;
+        bottom: 0;
         background-color: var(--brand-dark);
         background-color: rgb(159 127 106 / 85%);
         padding-top: 90px;
@@ -102,5 +105,9 @@
     .toolbar > li > a {
         display: block;
         font-size: 1.24rem;
+    }
+
+    .mobileFooter {
+        display: flex;
     }
 }

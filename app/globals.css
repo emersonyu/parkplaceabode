@@ -46,7 +46,7 @@
   --brand-cta: #8F5F75;
   --brand-accent: #A89ABB;
 
-  --background-light: #F7F9F3;
+  --background-light: #fcf7f4;
   --text-inverse: #F7F9F3;
 
   --accent-light: #E0986E;
@@ -130,6 +130,16 @@ a {
 
 h1 {
   font-family: var(--font-serif);
+  margin-bottom: 2rem;;
+}
+
+h2 {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+}
+
+.list-item {
+  margin-bottom: 1.6rem;;
 }
 
 .content-container {

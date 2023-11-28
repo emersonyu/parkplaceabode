@@ -1,7 +1,9 @@
 'use client'
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { playfairDisplay } from '../../utils/fonts'
+import { MobileFooter } from '../Footer'
 import styles from './header.module.css'
 
 type HamburgerProps = {
@@ -67,7 +69,20 @@ export const Header = (props: any) => {
     return (
         <header className={`content-container ${styles.header}`} {...props}>
             <div className={styles.logo}>
-                <Link href="/">[logo placeholder]</Link>
+                <Link href="/">
+                    <Image
+                        src="/ppa_logo_full.png"
+                        alt="Park Place Abode logo"
+                        priority
+                        width="40"
+                        height="40"
+                    />
+                </Link>
+                <Link href="/">
+                    <strong className={playfairDisplay.className}>
+                        Park Place Abode
+                    </strong>
+                </Link>
             </div>
             <Hamburger onClick={handleToggle} isOpen={showMenu} />
             {showMenu && <Mask onClick={handleToggle} />}
@@ -90,6 +105,10 @@ export const Header = (props: any) => {
                         <Link href="/contact">Contact</Link>
                     </li>
                 </ul>
+
+                <div className={styles.mobileFooter}>
+                    <MobileFooter />
+                </div>
             </nav>
         </header>
     )
