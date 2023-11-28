@@ -14,11 +14,11 @@ const getProjects = async () => {
     return projects
 }
 
-const ProjectGallery = (images) => {
+const ProjectGallery = (images: any) => {
     return (
         <section>
             <h6>Gallery</h6>
-            {images.map((image) => {
+            {images.map((image: any) => {
                 return null
             })}
         </section>
