@@ -25,8 +25,12 @@
     list-style: none;
 }
 
-.toolbar  > li  {
+.toolbar > li  {
     margin: 0 12px;
+}
+
+.activeItem  {
+    font-weight: 600;
 }
 
 .hamburger {

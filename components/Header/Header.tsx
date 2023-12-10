@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 import { playfairDisplay } from '../../utils/fonts'
 import { MobileFooter } from '../Footer'
 import styles from './header.module.css'
@@ -54,6 +55,7 @@ const Mask = ({ onClick }: any) => {
 }
 
 export const Header = (props: any) => {
+    const pathname = usePathname()
     const [showMenu, setShowMenu] = useState(false)
     const handleToggle = (event: any) => {
         setShowMenu(!showMenu)
@@ -65,6 +67,8 @@ export const Header = (props: any) => {
             setShowMenu(false)
         }
     }
+
+    console.log(pathname)
 
     return (
         <header className={`content-container ${styles.header}`} {...props}>
@@ -94,16 +98,32 @@ export const Header = (props: any) => {
                 }`}
             >
                 <ul className={styles.toolbar} onClick={handleLink}>
-                    <li>
+                    <li
+                        className={
+                            pathname === '/about' ? styles.activeItem : ''
+                        }
+                    >
                         <Link href="/about">About</Link>
                     </li>
-                    <li>
+                    <li
+                        className={
+                            pathname === '/portfolio' ? styles.activeItem : ''
+                        }
+                    >
                         <Link href="/portfolio">Portfolio</Link>
                     </li>
-                    <li>
+                    <li
+                        className={
+                            pathname === '/services' ? styles.activeItem : ''
+                        }
+                    >
                         <Link href="/services">Services</Link>
                     </li>
-                    <li>
+                    <li
+                        className={
+                            pathname === '/contact' ? styles.activeItem : ''
+                        }
+                    >
                         <Link href="/contact">Contact</Link>
                     </li>
                 </ul>
