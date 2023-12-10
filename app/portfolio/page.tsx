@@ -4,6 +4,8 @@ import imageUrlBuilder from '@sanity/image-url'
 import Link from 'next/link'
 import styles from './portfolio.module.css'
 
+export const dynamic = 'force-dynamic'
+
 const client = createClient({
     projectId: 'w9ib5hjc',
     dataset: 'production',
