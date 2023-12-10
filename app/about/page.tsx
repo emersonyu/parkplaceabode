@@ -7,8 +7,13 @@ export default function About() {
     return (
         <main>
             <article className={styles.container}>
-                <Image src="natalie_about.jpeg" width="400" height="500" />
-                <div class="about">
+                <Image
+                    src="natalie_about.jpeg"
+                    width="400"
+                    height="500"
+                    alt="Natalie with her project"
+                />
+                <div className="about">
                     <h1>About Natalie</h1>
                     <p>
                         Cupcake ipsum dolor sit amet muffin gummi bears. Danish

@@ -29,7 +29,7 @@ export const getProject = async (slug: string) => {
 // Then we like to make a simple function like this that gives the
 // builder an image and returns the builder for you to specify additional
 // parameters:
-export const urlFor = (source: unknown) => {
+export const urlFor = (source: any) => {
     return builder.image(source)
 }
 
@@ -74,7 +74,7 @@ export default async function Portfolio() {
     return (
         <main>
             <h1 className="sr-only">Portfolio</h1>
-            {projects.map((project: unknown) => {
+            {projects.map((project: any) => {
                 return <Project key={project._id} project={...project} />
             })}
         </main>
