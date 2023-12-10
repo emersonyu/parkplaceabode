@@ -8,12 +8,16 @@
 }
 
 .logo {
-    width: 190px;
+    width: 240px;
     height: 40px;
     display: flex;
     gap: 12px;
     align-items: center;
-    justify-content: center;
+}
+
+.siteTitle {
+    font-weight: 500;
+    letter-spacing: 2px;
 }
   
 .toolbar {

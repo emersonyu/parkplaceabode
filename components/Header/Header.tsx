@@ -79,9 +79,11 @@ export const Header = (props: any) => {
                     />
                 </Link>
                 <Link href="/">
-                    <strong className={playfairDisplay.className}>
+                    <span
+                        className={`${playfairDisplay.className} ${styles.siteTitle}`}
+                    >
                         Park Place Abode
-                    </strong>
+                    </span>
                 </Link>
             </div>
             <Hamburger onClick={handleToggle} isOpen={showMenu} />
