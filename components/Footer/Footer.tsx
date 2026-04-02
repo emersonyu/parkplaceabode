@@ -5,47 +5,95 @@ import styles from './footer.module.css'
 
 export const Footer = () => {
     return (
-        <footer className={`${styles.footer} content-container`}>
-            <div className={`socials ${playfairDisplay.className}`}>
-                <ul className="footer-links">
-                    <li>
-                        <a href="https://www.instagram.com/parkplaceabode/">
-                            Instagram
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.amazon.com">Amazon</a>
-                    </li>
-                </ul>
+        <footer className={styles.footer}>
+            <div className={styles.footerInner}>
+                <div className={styles.footerBrand}>
+                    <Link href="/" className={styles.footerLogo}>
+                        <Image
+                            src="/ppa_logo_full.png"
+                            alt="Park Place Abode"
+                            width={40}
+                            height={40}
+                        />
+                        <span
+                            className={`${playfairDisplay.className} ${styles.footerSiteTitle}`}
+                        >
+                            Park Place Abode
+                        </span>
+                    </Link>
+                    <p className={styles.footerTagline}>
+                        Custom cabinetry, designed and built for how you live.
+                    </p>
+                </div>
+
+                <nav className={styles.footerNav} aria-label="Footer navigation">
+                    <span className={styles.footerNavLabel}>Explore</span>
+                    <ul className={styles.footerNavList}>
+                        <li>
+                            <Link href="/about" className={styles.footerNavLink}>
+                                About
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                href="/portfolio"
+                                className={styles.footerNavLink}
+                            >
+                                Portfolio
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                href="/services"
+                                className={styles.footerNavLink}
+                            >
+                                Services
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                href="/contact"
+                                className={styles.footerNavLink}
+                            >
+                                Contact
+                            </Link>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div className={styles.footerConnect}>
+                    <span className={styles.footerNavLabel}>Connect</span>
+                    <ul className={styles.footerNavList}>
+                        <li>
+                            <a
+                                href="https://www.instagram.com/parkplaceabode/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.footerNavLink}
+                            >
+                                Instagram
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="mailto:natalie@parkplaceabode.com"
+                                className={styles.footerNavLink}
+                            >
+                                natalie@parkplaceabode.com
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div className="logo">
-                <Link href="/">
-                    <Image
-                        src="/ppa_logo_full.png"
-                        alt="Park Place Abode logo"
-                        priority
-                        width="40"
-                        height="40"
-                    />
-                </Link>
+
+            <div className={styles.footerBottom}>
+                <p className={styles.footerCopyright}>
+                    &copy; {new Date().getFullYear()} Park Place Abode. San Jose,
+                    CA.
+                </p>
             </div>
         </footer>
     )
 }
 
-export const MobileFooter = () => {
-    return (
-        <div className={`socials ${playfairDisplay.className}`}>
-            <ul className="footer-links">
-                <li>
-                    <a href="https://www.instagram.com/parkplaceabode/">
-                        Instagram
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.amazon.com">Amazon</a>
-                </li>
-            </ul>
-        </div>
-    )
-}
+export const MobileFooter = () => null

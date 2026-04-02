@@ -1,0 +1,258 @@
+/* ── Page Header ── */
+.pageHeader {
+    padding: calc(var(--header-height) + 3.5rem) var(--section-h-pad) 3.5rem;
+    border-bottom: 1px solid var(--color-border);
+    max-width: 680px;
+}
+
+.eyebrow {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-sand);
+    margin-bottom: 0.75rem;
+}
+
+.pageTitle {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-heading);
+    line-height: 1.05;
+    margin: 0 0 1rem;
+}
+
+.pageSubtitle {
+    font-size: 1.05rem;
+    color: var(--color-muted);
+    line-height: 1.65;
+    margin: 0;
+}
+
+/* ── Layout ── */
+.contactLayout {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 5rem;
+    padding: var(--section-v-pad) var(--section-h-pad);
+    align-items: start;
+}
+
+/* ── Section Headings ── */
+.sectionHeading {
+    font-size: 1.35rem;
+    font-weight: 400;
+    color: var(--color-heading);
+    margin: 0 0 1.75rem;
+}
+
+/* ── Form ── */
+.formSection {
+    max-width: 600px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.formRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+}
+
+.input,
+.select,
+.textarea {
+    width: 100%;
+    background-color: var(--color-bg-cream);
+    border: 1px solid var(--color-border);
+    padding: 0.85rem 1rem;
+    font-size: 0.9375rem;
+    font-family: var(--font-sans);
+    color: var(--color-body);
+    outline: none;
+    transition: border-color 200ms ease, background-color 200ms ease;
+    border-radius: 0;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+    color: var(--color-muted);
+    opacity: 0.7;
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+    border-color: var(--color-sand);
+    background-color: #fff;
+}
+
+.select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239A8880' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+    cursor: pointer;
+}
+
+.textarea {
+    resize: vertical;
+    min-height: 160px;
+}
+
+.submitButton {
+    align-self: flex-start;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: var(--color-mauve);
+    padding: 1rem 2.5rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 200ms ease;
+    font-family: var(--font-sans);
+}
+
+.submitButton:hover {
+    background-color: #7a4f63;
+}
+
+/* ── Sidebar ── */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    position: sticky;
+    top: calc(var(--header-height) + 2rem);
+}
+
+/* ── Contact Info ── */
+.contactDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.contactDetail {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.contactDetail:last-child {
+    border-bottom: none;
+}
+
+.detailLabel {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+}
+
+.detailValue {
+    font-size: 0.9375rem;
+    color: var(--color-body);
+    text-decoration: none;
+    transition: color 150ms ease;
+}
+
+a.detailValue:hover {
+    color: var(--color-sand);
+}
+
+/* ── Calendly ── */
+.calendlyBlock {
+    padding: 2rem;
+    background-color: var(--color-bg-cream);
+    border: 1px solid var(--color-border);
+}
+
+.calendlyDesc {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: var(--color-body);
+    margin: -0.75rem 0 1.5rem;
+}
+
+.calendlyPlaceholder {
+    border: 1.5px dashed var(--color-border);
+    border-radius: 2px;
+    min-height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calendlyPlaceholderInner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    text-align: center;
+    padding: 2rem;
+}
+
+.calendlyIcon {
+    color: var(--color-sand);
+    opacity: 0.7;
+}
+
+.calendlyPlaceholderText {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-muted);
+    margin: 0;
+}
+
+.calendlyPlaceholderHint {
+    font-size: 0.75rem;
+    color: var(--color-muted);
+    opacity: 0.7;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+    .contactLayout {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+    }
+
+    .sidebar {
+        position: static;
+        max-width: 600px;
+    }
+}
+
+@media (max-width: 768px) {
+    .formRow {
+        grid-template-columns: 1fr;
+    }
+}

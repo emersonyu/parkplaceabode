@@ -1,3 +1,434 @@
-.avatar {
-  border-radius: 50%;
+/* ── Base ── */
+.home {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* ── Hero ── */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100svh;
+    min-height: 600px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.heroImage {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.heroOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        160deg,
+        rgba(38, 29, 23, 0.25) 0%,
+        rgba(38, 29, 23, 0.5) 60%,
+        rgba(38, 29, 23, 0.65) 100%
+    );
+}
+
+.heroContent {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    margin-top: -2rem;
+}
+
+.heroEyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(244, 235, 225, 0.7);
+    margin: 0;
+}
+
+.heroTitle {
+    font-size: clamp(3rem, 8vw, 7.5rem);
+    font-weight: 400;
+    font-style: italic;
+    color: #fff;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin: 0;
+}
+
+.heroSubtitle {
+    font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(244, 235, 225, 0.75);
+    margin: 0;
+}
+
+.heroScroll {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    color: rgba(255, 255, 255, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    transition: color 200ms ease, border-color 200ms ease;
+    animation: heroScrollBounce 2.5s ease-in-out 2s infinite;
+}
+
+.heroScroll:hover {
+    color: rgba(255, 255, 255, 0.9);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+@keyframes heroScrollBounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(5px); }
+}
+
+/* ── Shared Section Styles ── */
+.section {
+    padding: var(--section-v-pad) var(--section-h-pad);
+    width: 100%;
+}
+
+.sectionHeader {
+    margin-bottom: 3rem;
+}
+
+.sectionHeaderCenter {
+    text-align: center;
+}
+
+.eyebrow {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-sand);
+    margin-bottom: 0.75rem;
+}
+
+.eyebrowInverse {
+    color: rgba(191, 149, 108, 0.8);
+}
+
+.sectionHeading {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+    color: var(--color-heading);
+    line-height: 1.1;
+    margin: 0;
+}
+
+.sectionHeadingInverse {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+    color: var(--color-inverse);
+    line-height: 1.1;
+    margin: 0;
+}
+
+.sectionFooter {
+    margin-top: 3rem;
+}
+
+.sectionFooterCenter {
+    text-align: center;
+}
+
+.textLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-heading);
+    border-bottom: 1px solid var(--color-sand);
+    padding-bottom: 2px;
+    transition: color 200ms ease, border-color 200ms ease;
+}
+
+.textLink:hover {
+    color: var(--color-sand);
+    border-color: var(--color-sand);
+}
+
+.textLinkInverse {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-inverse);
+    border-bottom: 1px solid rgba(244, 235, 225, 0.4);
+    padding-bottom: 2px;
+    transition: opacity 200ms ease;
+}
+
+.textLinkInverse:hover {
+    opacity: 0.75;
+}
+
+.ctaButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: var(--color-mauve);
+    padding: 0.85rem 2rem;
+    transition: background-color 200ms ease;
+    text-decoration: none;
+}
+
+.ctaButton:hover {
+    background-color: #7a4f63;
+}
+
+/* ── Featured Work ── */
+.featuredWork {
+    max-width: calc(var(--max-width) + 2 * var(--section-h-pad));
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.workGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    grid-template-rows: auto auto;
+}
+
+/* First card spans full width */
+.projectCardFeatured {
+    grid-column: 1 / -1;
+}
+
+.projectCard {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.projectImage {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background-color: var(--color-bg-cream);
+}
+
+.projectCardFeatured .projectImage {
+    aspect-ratio: 16 / 7;
+}
+
+.projectImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: block;
+}
+
+.projectCard:hover .projectImage img {
+    transform: scale(1.03);
+}
+
+.projectImagePlaceholder {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-bg-cream);
+}
+
+.projectMeta {
+    padding: 0.25rem 0;
+}
+
+.projectName {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--color-heading);
+    margin: 0;
+}
+
+.skeletonLine {
+    height: 1rem;
+    width: 60%;
+    background-color: var(--color-bg-cream);
+    border-radius: 2px;
+}
+
+.workPlaceholder {
+    opacity: 0.4;
+}
+
+/* ── About ── */
+.aboutSection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    background-color: var(--color-bg-cream);
+}
+
+.aboutImageWrap {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+}
+
+.aboutImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+}
+
+.aboutContent {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.aboutHeading {
+    font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+    font-weight: 400;
+    color: var(--color-heading);
+    line-height: 1.2;
+    margin: 0;
+}
+
+.aboutHeading em {
+    font-style: italic;
+    color: var(--color-sand);
+}
+
+.aboutBody {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--color-body);
+    margin: 0;
+    max-width: 42ch;
+}
+
+/* ── Services ── */
+.servicesSection {
+    background-color: var(--color-bg-dark);
+    width: 100%;
+}
+
+.servicesInner {
+    max-width: calc(var(--max-width) + 2 * var(--section-h-pad));
+    margin: 0 auto;
+    padding: var(--section-v-pad) var(--section-h-pad);
+}
+
+.servicesGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.serviceCard {
+    padding: 2.5rem 2rem;
+    border: 1px solid rgba(191, 149, 108, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.serviceNumber {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    color: var(--color-sand);
+    font-weight: 500;
+}
+
+.serviceName {
+    font-size: 1.35rem;
+    font-weight: 400;
+    color: var(--color-inverse);
+    margin: 0;
+}
+
+.serviceDesc {
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: rgba(244, 235, 225, 0.55);
+    margin: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+    .workGrid {
+        gap: 1rem;
+    }
+
+    .aboutSection {
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .workGrid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .projectCardFeatured {
+        grid-column: 1;
+    }
+
+    .projectCardFeatured .projectImage {
+        aspect-ratio: 4 / 3;
+    }
+
+    .aboutSection {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .aboutImageWrap {
+        aspect-ratio: 4 / 3;
+    }
+
+    .servicesGrid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .serviceCard {
+        padding: 1.75rem 1.5rem;
+    }
+
+    .heroScroll {
+        bottom: 1.5rem;
+    }
 }

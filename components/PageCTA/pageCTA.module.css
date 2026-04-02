@@ -1,0 +1,98 @@
+.section {
+    padding: var(--section-v-pad) var(--section-h-pad);
+    width: 100%;
+}
+
+.eyebrow {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-sand);
+    margin-bottom: 0.75rem;
+}
+
+/* ── Instagram / Social ── */
+.socialSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.25rem;
+    background-color: var(--color-bg);
+    border-top: 1px solid var(--color-border);
+}
+
+.socialHandle {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    margin: 0;
+}
+
+.socialHeading {
+    font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-heading);
+    margin: 0;
+}
+
+.socialBody {
+    font-size: 1rem;
+    color: var(--color-body);
+    max-width: 46ch;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ── Contact CTA ── */
+.contactSection {
+    background-color: var(--color-bg-cream);
+}
+
+.contactInner {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    align-items: flex-start;
+}
+
+.contactHeading {
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    font-weight: 400;
+    color: var(--color-heading);
+    line-height: 1.1;
+    margin: 0;
+}
+
+.contactBody {
+    font-size: 1rem;
+    color: var(--color-body);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ── CTA Button ── */
+.ctaButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: var(--color-mauve);
+    padding: 0.85rem 2rem;
+    transition: background-color 200ms ease;
+    text-decoration: none;
+    margin-top: 0.5rem;
+}
+
+.ctaButton:hover {
+    background-color: #7a4f63;
+}

@@ -1,3 +1,184 @@
-.container {
-    width: 50%;
+/* ── Page Header ── */
+.pageHeader {
+    padding: calc(var(--header-height) + 3.5rem) var(--section-h-pad) 3.5rem;
+    border-bottom: 1px solid var(--color-border);
+    max-width: 700px;
+}
+
+.eyebrow {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-sand);
+    margin-bottom: 0.75rem;
+}
+
+.pageTitle {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-heading);
+    line-height: 1.05;
+    margin: 0 0 1rem;
+}
+
+.pageSubtitle {
+    font-size: 1.1rem;
+    color: var(--color-muted);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ── Services ── */
+.servicesSection {
+    padding: var(--section-v-pad) var(--section-h-pad);
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.serviceRow {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 4rem;
+    padding: 3.5rem 0;
+    border-top: 1px solid var(--color-border);
+    align-items: start;
+}
+
+.serviceLabel {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: sticky;
+    top: calc(var(--header-height) + 2rem);
+}
+
+.serviceNumber {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    color: var(--color-sand);
+}
+
+.serviceName {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--color-heading);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.serviceBody p {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--color-body);
+    margin-bottom: 1.5rem;
+}
+
+.serviceList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.serviceList li {
+    font-size: 0.9375rem;
+    color: var(--color-body);
+    padding-left: 1.25rem;
+    position: relative;
+    margin: 0;
+}
+
+.serviceList li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--color-sand);
+    font-size: 0.75rem;
+    top: 2px;
+}
+
+/* ── Process ── */
+.processSection {
+    padding: var(--section-v-pad) var(--section-h-pad);
+    background-color: var(--color-bg-cream);
+}
+
+.processSectionHeader {
+    margin-bottom: 3rem;
+}
+
+.processSectionHeading {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 400;
+    color: var(--color-heading);
+    margin: 0;
+}
+
+.processList {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.processStep {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid var(--color-sand);
+    margin: 0;
+}
+
+.processStepNumber {
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--color-sand);
+    font-family: var(--font-serif);
+    line-height: 1;
+}
+
+.processStepName {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--color-heading);
+    margin: 0 0 0.5rem;
+}
+
+.processStep p {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: var(--color-body);
+    margin: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+    .processList {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .serviceRow {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .serviceLabel {
+        position: static;
+    }
+
+    .processList {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
 }

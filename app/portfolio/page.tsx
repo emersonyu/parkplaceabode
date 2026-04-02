@@ -1,82 +1,100 @@
-import { createClient } from 'next-sanity'
-import { PortableText } from '@portabletext/react'
-import imageUrlBuilder from '@sanity/image-url'
 import Link from 'next/link'
+import { playfairDisplay } from '../../utils/fonts'
+import { sanityClient, urlFor } from '../../lib/sanity'
+import { PageCTA } from '../../components/PageCTA'
 import styles from './portfolio.module.css'
 
-const client = createClient({
-    projectId: 'w9ib5hjc',
-    dataset: 'production',
-    apiVersion: '2023-09-22',
-    useCdn: false,
-})
-
-const builder = imageUrlBuilder(client)
-
 const getProjects = async () => {
-    const projects = await client.fetch(`*[_type == "project"]`)
-    return projects
-}
-
-export const getProject = async (slug: string) => {
-    console.log('===GETTING', slug)
-    const project = await client.fetch(
-        `*[_type == "project" && name == "${slug}"]`
-    )
-    return project
-}
-
-// Then we like to make a simple function like this that gives the
-// builder an image and returns the builder for you to specify additional
-// parameters:
-export const urlFor = (source: any) => {
-    return builder.image(source)
-}
-
-const ProjectGallery = (images: any) => {
-    return (
-        <section>
-            <h6>Gallery</h6>
-            {images.map((image: any) => {
-                return null
-            })}
-        </section>
-    )
-}
-
-const Project = ({ project }: Record<string, any>) => {
-    return (
-        <div className={styles.projectItem}>
-            <div className={styles.projectSummary}>
-                <h2>{project.name}</h2>
-                <PortableText value={project.description} />
-                {/*<Link href={`/portfolio/${project.name}`}>More...</Link>*/}
-            </div>
-            <div className={styles.projectGallery}>
-                {project.images &&
-                    project.images.map((image: any, i: number) => {
-                        return (
-                            // eslint-disable-next-line
-                            <img
-                                key={i}
-                                src={urlFor(image).width(420).url()}
-                                alt=""
-                            />
-                        )
-                    })}
-            </div>
-        </div>
-    )
+    try {
+        return await sanityClient.fetch(
+            `*[_type == "project"] | order(_createdAt desc) {
+                _id, name, description, images
+            }`
+        )
+    } catch {
+        return []
+    }
 }
 
 export default async function Portfolio() {
     const projects = await getProjects()
+
     return (
         <main>
-            <h1 className="sr-only">Portfolio</h1>
-            {projects.map((project: any) => {
-                return <Project key={project._id} project={...project} />
-            })}
+            {/* ── Page Header ── */}
+            <header className={styles.pageHeader}>
+                <span className={styles.eyebrow}>Our Work</span>
+                <h1
+                    className={`${playfairDisplay.className} ${styles.pageTitle}`}
+                >
+                    Portfolio
+                </h1>
+            </header>
+
+            {/* ── Grid ── */}
+            <section className={styles.gridSection}>
+                {projects.length > 0 ? (
+                    <div className={styles.grid}>
+                        {projects.map((project: any, i: number) => (
+                            <Link
+                                key={project._id}
+                                href={`/portfolio/${encodeURIComponent(project.name)}`}
+                                className={styles.gridItem}
+                            >
+                                <div className={styles.imageWrap}>
+                                    {project.images?.[0] ? (
+                                        // eslint-disable-next-line @next/next/no-img-element
+                                        <img
+                                            src={urlFor(project.images[0])
+                                                .width(1200)
+                                                .url()}
+                                            alt={project.name}
+                                            className={styles.image}
+                                        />
+                                    ) : (
+                                        <div className={styles.imagePlaceholder} />
+                                    )}
+                                    <div className={styles.imageOverlay}>
+                                        <span className={styles.overlayArrow}>
+                                            <svg
+                                                width="18"
+                                                height="18"
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                strokeWidth="1.5"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                            >
+                                                <path d="M7 17L17 7M17 7H7M17 7v10" />
+                                            </svg>
+                                        </span>
+                                    </div>
+                                    <span className={styles.projectIndex}>
+                                        {String(i + 1).padStart(2, '0')}
+                                    </span>
+                                </div>
+                                <div className={styles.projectMeta}>
+                                    <h2
+                                        className={`${playfairDisplay.className} ${styles.projectName}`}
+                                    >
+                                        {project.name}
+                                    </h2>
+                                </div>
+                            </Link>
+                        ))}
+                    </div>
+                ) : (
+                    <div className={styles.emptyState}>
+                        <p>Projects coming soon.</p>
+                        <Link href="/contact" className={styles.emptyLink}>
+                            Interested in working together?
+                        </Link>
+                    </div>
+                )}
+            </section>
+
+            <PageCTA showInstagram={true} />
         </main>
     )
 }

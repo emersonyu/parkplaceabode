@@ -1,4 +1,148 @@
-.container {
+/* ── Page Header ── */
+.pageHeader {
+    padding: calc(var(--header-height) + 3.5rem) var(--section-h-pad) 3.5rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.eyebrow {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-sand);
+    margin-bottom: 0.75rem;
+}
+
+.pageTitle {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-heading);
+    line-height: 1.05;
+    margin: 0;
+}
+
+/* ── Intro Split ── */
+.introSection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    padding: var(--section-v-pad) var(--section-h-pad);
+    background-color: var(--color-bg-cream);
+}
+
+.introImageWrap {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+}
+
+.introImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+}
+
+.introContent {
     display: flex;
-    gap: 32px;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.introHeading {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 400;
+    color: var(--color-heading);
+    line-height: 1.2;
+    margin: 0;
+}
+
+.introHeading em {
+    font-style: italic;
+    color: var(--color-sand);
+}
+
+.introContent p {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--color-body);
+    margin: 0;
+}
+
+/* ── Story Sections ── */
+.storySection {
+    padding: var(--section-v-pad) var(--section-h-pad);
+}
+
+.storyGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    max-width: var(--max-width);
+}
+
+.storyItem {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.storyNumber {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    color: var(--color-sand);
+}
+
+.storyHeading {
+    font-size: 1.35rem;
+    font-weight: 400;
+    color: var(--color-heading);
+    margin: 0;
+}
+
+.storyItem p {
+    font-size: 0.9375rem;
+    line-height: 1.75;
+    color: var(--color-body);
+    margin: 0;
+}
+
+.storyItem a {
+    color: var(--color-sand);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+    .introSection {
+        gap: 3rem;
+    }
+
+    .storyGrid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .introSection {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .introImageWrap {
+        aspect-ratio: 4 / 3;
+    }
+
+    .storyGrid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
 }

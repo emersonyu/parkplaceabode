@@ -1,14 +1,13 @@
 import './globals.css'
+import '@radix-ui/themes/styles.css'
 import type { Metadata } from 'next'
-import { Header } from '../components/Header'
-import { Footer } from '../components/Footer'
-
 import { dmSans, playfairDisplay } from '../utils/fonts'
+import { ParkPlaceAbode } from '../components/ParkPlaceAbode'
 
 export const metadata: Metadata = {
-    title: 'Park Place Abode',
+    title: 'Park Place Abode | Custom Cabinetry & Interior Design',
     description:
-        "ParkPlaceAbode is Natalie Han's design/build & DIY showcase. Natalie is from San Jose, CA",
+        'Park Place Abode is a custom cabinetry design, build, and installation studio founded by Natalie Park in San Jose, CA.',
 }
 
 export default function RootLayout({
@@ -18,10 +17,10 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body className={`${dmSans.className} ${playfairDisplay.variable}`}>
-                <Header />
-                <section className="layout-container">{children}</section>
-                <Footer />
+            <body
+                className={`${dmSans.className} ${dmSans.variable} ${playfairDisplay.variable}`}
+            >
+                <ParkPlaceAbode>{children}</ParkPlaceAbode>
             </body>
         </html>
     )
