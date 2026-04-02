@@ -108,6 +108,7 @@
 .processSection {
     padding: var(--section-v-pad) var(--section-h-pad);
     background-color: var(--color-bg-cream);
+    margin-bottom: var(--section-v-pad);
 }
 
 .processSectionHeader {
