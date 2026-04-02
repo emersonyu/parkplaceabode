@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { playfairDisplay } from '../../utils/fonts'
-import { PageCTA } from '../../components/PageCTA'
 import styles from './services.module.css'
 
 export default function Services() {
@@ -173,7 +172,6 @@ export default function Services() {
                 </ol>
             </section>
 
-            <PageCTA showInstagram={false} />
         </main>
     )
 }

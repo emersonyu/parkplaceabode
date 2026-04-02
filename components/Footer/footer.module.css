@@ -5,12 +5,71 @@
     margin-top: auto;
 }
 
+/* ── Get in Touch CTA ── */
+.cta {
+    background-color: var(--color-bg-cream);
+    width: 100%;
+    padding: var(--section-v-pad) var(--section-h-pad);
+}
+
+.ctaInner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    align-items: flex-start;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.ctaEyebrow {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-sand);
+}
+
+.ctaHeading {
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    font-weight: 400;
+    color: var(--color-heading);
+    line-height: 1.1;
+    margin: 0;
+}
+
+.ctaBody {
+    font-size: 1rem;
+    color: var(--color-body);
+    line-height: 1.7;
+    margin: 0;
+}
+
+.ctaButton {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: var(--color-mauve);
+    padding: 0.85rem 2rem;
+    text-decoration: none;
+    transition: background-color 200ms ease;
+    margin-top: 0.5rem;
+}
+
+.ctaButton:hover {
+    background-color: #7a4f63;
+}
+
+/* ── Nav / Brand ── */
 .footerInner {
     display: grid;
     grid-template-columns: 1fr auto auto;
     gap: 4rem;
     padding: 4rem var(--section-h-pad);
-    max-width: var(--max-width);
+    max-width: calc(var(--max-width) + 2 * var(--section-h-pad));
     margin: 0 auto;
     align-items: start;
 }
@@ -75,7 +134,7 @@
 .footerBottom {
     border-top: 1px solid rgba(191, 149, 108, 0.15);
     padding: 1.5rem var(--section-h-pad);
-    max-width: var(--max-width);
+    max-width: calc(var(--max-width) + 2 * var(--section-h-pad));
     margin: 0 auto;
     width: 100%;
 }

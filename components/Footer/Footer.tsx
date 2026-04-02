@@ -6,6 +6,26 @@ import styles from './footer.module.css'
 export const Footer = () => {
     return (
         <footer className={styles.footer}>
+            {/* ── Get in Touch ── */}
+            <div className={styles.cta}>
+                <div className={styles.ctaInner}>
+                    <span className={styles.ctaEyebrow}>Get in Touch</span>
+                    <h2
+                        className={`${playfairDisplay.className} ${styles.ctaHeading}`}
+                    >
+                        Let&rsquo;s build something beautiful
+                    </h2>
+                    <p className={styles.ctaBody}>
+                        Ready to transform your space? Tell Natalie about your
+                        project.
+                    </p>
+                    <Link href="/contact" className={styles.ctaButton}>
+                        Start a Conversation
+                    </Link>
+                </div>
+            </div>
+
+            {/* ── Nav / Brand ── */}
             <div className={styles.footerInner}>
                 <div className={styles.footerBrand}>
                     <Link href="/" className={styles.footerLogo}>

@@ -94,7 +94,7 @@ export default async function Portfolio() {
                 )}
             </section>
 
-            <PageCTA showInstagram={true} />
+            <PageCTA />
         </main>
     )
 }

@@ -126,7 +126,7 @@ export default function About() {
                 </div>
             </section>
 
-            <PageCTA showInstagram={true} />
+            <PageCTA />
         </main>
     )
 }

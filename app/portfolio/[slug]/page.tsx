@@ -2,7 +2,6 @@ import Link from 'next/link'
 import { PortableText } from '@portabletext/react'
 import { playfairDisplay } from '../../../utils/fonts'
 import { sanityClient, urlFor } from '../../../lib/sanity'
-import { PageCTA } from '../../../components/PageCTA'
 import styles from './slug.module.css'
 
 export async function generateStaticParams() {
@@ -30,9 +29,10 @@ const getProject = async (name: string) => {
 export default async function ProjectPage({
     params,
 }: {
-    params: { slug: string }
+    params: Promise<{ slug: string }>
 }) {
-    const name = decodeURIComponent(params.slug)
+    const { slug } = await params
+    const name = decodeURIComponent(slug)
 
     let project: any = null
     try {
@@ -116,7 +116,6 @@ export default async function ProjectPage({
                 )}
             </section>
 
-            <PageCTA showInstagram={false} />
         </main>
     )
 }

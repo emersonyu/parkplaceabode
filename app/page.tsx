@@ -250,7 +250,7 @@ export default async function Home() {
                 </div>
             </section>
 
-            <PageCTA showInstagram={true} />
+            <PageCTA />
         </main>
     )
 }
