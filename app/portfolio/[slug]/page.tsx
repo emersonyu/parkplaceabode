@@ -4,26 +4,27 @@ import { playfairDisplay } from '../../../utils/fonts'
 import { sanityClient, urlFor } from '../../../lib/sanity'
 import styles from './slug.module.css'
 
+const toSlug = (name: string) =>
+    name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+
 export async function generateStaticParams() {
     try {
         const projects = await sanityClient.fetch(
             `*[_type == "project"]{ name }`
         )
         return projects.map((p: { name: string }) => ({
-            slug: encodeURIComponent(p.name),
+            slug: toSlug(p.name),
         }))
     } catch {
         return []
     }
 }
 
-const getProject = async (name: string) => {
-    return sanityClient.fetch(
-        `*[_type == "project" && name == $name][0] {
-            _id, name, description, images
-        }`,
-        { name }
+const getProject = async (slug: string) => {
+    const projects = await sanityClient.fetch(
+        `*[_type == "project"]{ _id, name, description, images }`
     )
+    return projects.find((p: { name: string }) => toSlug(p.name) === slug) ?? null
 }
 
 export default async function ProjectPage({
@@ -32,11 +33,10 @@ export default async function ProjectPage({
     params: Promise<{ slug: string }>
 }) {
     const { slug } = await params
-    const name = decodeURIComponent(slug)
 
     let project: any = null
     try {
-        project = await getProject(name)
+        project = await getProject(slug)
     } catch {
         // fall through to 404
     }

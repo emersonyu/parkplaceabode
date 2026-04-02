@@ -38,7 +38,7 @@ export default async function Portfolio() {
                         {projects.map((project: any, i: number) => (
                             <Link
                                 key={project._id}
-                                href={`/portfolio/${encodeURIComponent(project.name)}`}
+                                href={`/portfolio/${project.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`}
                                 className={styles.gridItem}
                             >
                                 <div className={styles.imageWrap}>
